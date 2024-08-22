@@ -1,0 +1,37 @@
+<!-- src/app/post-form/post-form.component.html -->
+<div class="container-fluid mt-5">
+    <mat-card class="post-form-card">
+      <mat-card-title>{{ editing ? 'Edit Post' : 'Add Post' }}</mat-card-title>
+      <form [formGroup]="postForm" (ngSubmit)="submitPost()">
+        <mat-form-field class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" required />
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category" required>
+            <mat-option *ngFor="let cat of categories" [value]="cat">{{ cat }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Content</mat-label>
+          <textarea matInput formControlName="content" rows="5"></textarea>
+        </mat-form-field>
+  
+        <!-- Image Upload Section -->
+        <div class="image-upload">
+          <label class="upload-label" for="fileInput">Upload Image</label>
+          <input id="fileInput" type="file" (change)="onImageSelected($event)" accept="image/*" />
+          <img *ngIf="selectedImage" [src]="selectedImage" alt="Selected Image" class="preview-image" />
+        </div>
+  
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit">{{ editing ? 'Update' : 'Add' }} Post</button>
+          <button mat-button type="button" (click)="resetForm()">Reset</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

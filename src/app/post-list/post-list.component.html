@@ -1,0 +1,271 @@
+
+    <div class="banner_section layout_padding">
+       <h1 class="banner_taital">welcome <br>our blog</h1>
+       <div id="my_slider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+             <div class="carousel-item active">
+                <div class="image_main">
+                   <div class="container">
+                      <img src="../../assets/img-1.png" class="image_1">
+                      <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
+                   </div>
+                </div>
+             </div>
+             <div class="carousel-item">
+                <div class="image_main">
+                   <div class="container">
+                      <img src="../../assets/img-1.png" class="image_1">
+                      <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
+                   </div>
+                </div>
+             </div>
+             <div class="carousel-item">
+                <div class="image_main">
+                   <div class="container">
+                      <img src="../../assets/img-1.png" class="image_1">
+                      <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          
+       </div>
+    </div>
+    <div class="touch_setion">
+       <div class="box_main">
+          <div class="image_3">
+             <h4 class="who_text">Get In Touch</h4>
+          </div>
+       </div>
+       <div class="box_main">
+          <div class="image_4">
+             <h4 class="who_text">Facebook</h4>
+          </div>
+       </div>
+    </div>
+
+ <div class="about_section layout_padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-8 col-sm-12">
+             <div class="about_img"><img src="../../assets/about-img.png"></div>
+             <div class="like_icon"><img src="../../assets/like-icon.png"></div>
+             <p class="post_text">Post By : 09/06/2019</p>
+             <h2 class="most_text">Most Awesome Blue Lake With Snow <br>Mountain</h2>
+             <p class="lorem_text">Publish your passions, your way
+                Create a unique and beautiful blog easily.</p>
+          </div>
+          <div class="col-lg-4 col-sm-12">
+             <div class="image_5"><img src="../../assets/img-5.png"></div>
+             <h1 class="about_taital">About Us</h1>
+             <p class="about_text">Create a beautiful blog that fits your style. Choose from a selection of easy-to-use templates – all with flexible layouts and hundreds of background images – or design something new.</p>
+             <div class="read_bt_1"><a href="#">Read More</a></div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+<div class="container">
+    <hr>
+    <mat-divider class="my-3"></mat-divider>
+    <div class=" row mt-5" style="margin-top: 100px !important;">
+        <mat-divider class="my-3"></mat-divider>
+      
+      <span> <h1 class="most_text" style="justify-content: center;text-align: center;font-weight: 600px;"> <div>
+        <a href="">
+          Blog Post
+        </a>
+      </div></h1></span>  
+    </div>
+    <div class="row">
+      <div>
+        <h1 class="most_text" style="font-weight: 500px;">Post</h1>
+      </div>
+      <mat-divider class="my-3"></mat-divider>
+      <div class="col-md-8">
+          <mat-accordion class="example-headers-align p-0  m-0" multi *ngFor="let post of filteredPosts$ | async" class="post-item fade-in">
+            <mat-expansion-panel style="margin-bottom: 10px;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ post.title }}
+                </mat-panel-title>
+                <mat-panel-description style="justify-content: right;text-align: right;">
+                  
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+                
+              </mat-expansion-panel-header>
+              <div >
+                <mat-card class="post-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="avatar"></div>
+                    <mat-card-title>{{ post.title }}</mat-card-title>
+                    <mat-card-subtitle>{{ post.category }} | {{ post.date | date:'mediumDate' }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <!-- Use dynamic image URL from the post object -->
+                  <img mat-card-image *ngIf="post.imageUrl" [src]="post.imageUrl" alt="{{ post.title }}" />
+                  <mat-card-content>
+                    <p>{{ post.content }}</p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button color="primary" (click)="editPost(post)">Edit</button>
+                    <button mat-button color="warn" (click)="deletePost(post.id)">Delete</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          
+        
+      </div>
+  
+      <!-- Search and Filter -->
+      <div class="col-md-4">
+        <mat-card class="filter-card">
+          <mat-card-header>
+            <mat-card-title>Filters</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <!-- Search Filter -->
+            <mat-form-field class="full-width">
+              <mat-label>Search Posts</mat-label>
+              <input matInput placeholder="Search by title or content" [(ngModel)]="searchText" />
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="full-width" (click)="applyFilters()">
+              Search
+            </button>
+  
+            <!-- Category Filter -->
+            <mat-divider class="my-3"></mat-divider>
+            <h5>Categories</h5>
+            <div *ngFor="let category of categories">
+              <mat-checkbox [(ngModel)]="selectedCategories[category]" (change)="applyFilters()">
+                {{ category }}
+              </mat-checkbox>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
+  <section class="info_section mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h6>
+            Subscribe Now
+          </h6>
+          <p>
+            Whether sharing your expertise, breaking news, or whatever’s on your mind, you’re in good company on Blogger. 
+          </p>
+          <form action="">
+            <input type="text" placeholder="Enter your email">
+            <div class="d-flex justify-content-end">
+              <button>
+                subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-2">
+          <h6>
+            Information
+          </h6>
+          <ul>
+            <li>
+              <a href="">
+                There are many
+              </a>
+            </li>
+            <li>
+              <a href="">
+                variations of
+              </a>
+            </li>
+            <li>
+              <a href="">
+                passages of Lorem
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Ipsum available,
+              </a>
+            </li>
+            <li>
+              <a href="">
+                but the majority
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h6>
+            Helpful Links
+          </h6>
+          <ul>
+            <li>
+              <a href="">
+                Help Center
+               
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Help Forum
+              
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Video Tutorials
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h6>
+            Contact Us
+          </h6>
+          <div class="info_link-box">
+            <a href="">
+              <img src="../../assets/location.png" alt="">
+              <span> Location</span>
+            </a>
+            <a href="">
+              <img src="../../assets/call.png" alt="">
+              <span>+918269377569</span>
+            </a>
+            <a href="">
+              <img src="../../assets/envelope.png" alt="">
+              <span> dhanraj.kushwah@gmail.com</span>
+            </a>
+          </div>
+          <div class="info_social">
+            <div>
+              <a href="">
+                <img src="../../assets/fb.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="../../assets/twitter.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="../../assets/linkedin.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="../../assets/insta.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

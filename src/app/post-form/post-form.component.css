@@ -1,0 +1,72 @@
+/* src/app/post-form/post-form.component.css */
+
+/* Card Styling */
+.post-form-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+  }
+  
+  /* Full-width form fields */
+  .full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Image Upload Section */
+  .image-upload {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .upload-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #3f51b5;
+    cursor: pointer;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  .preview-image {
+    margin-top: 10px;
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Button Group Styling */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button[type="submit"],
+  button[type="button"] {
+    width: 48%;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 600px) {
+    .post-form-card {
+      padding: 15px;
+    }
+  
+    .button-group {
+      flex-direction: column;
+    }
+  
+    button[type="submit"],
+    button[type="button"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
